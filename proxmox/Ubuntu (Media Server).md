@@ -135,6 +135,15 @@ services:
     restart: always
     networks:
       - media_network
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    restart: unless-stopped
+    ports:
+      - 8191:8191
+    environment:
+      - LOG_LEVEL=info
+
 
 networks:
   media_network:
